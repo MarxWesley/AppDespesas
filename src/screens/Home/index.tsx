@@ -33,10 +33,6 @@ export function Home() {
         fecthList()
     }, []))
 
-    const handleItemPress = (id: string, title: string) => {
-        navigation.navigate('list', {listId: id, title: title})
-    }
-
     return (
         <Container>
             <Header 
@@ -62,6 +58,7 @@ export function Home() {
                         variant='SECUNDARY'
                         icon={<ListDashes color='black' size={20} weight='bold'/>}
                         text='Ver despesas' 
+                        onPress={() => navigation.navigate('viewExpenses')}
                     />
             </BtnContainer>
         </Container>
