@@ -4,7 +4,7 @@ import { Quantity, Row, Subtitle, TotalExpense } from "./styles";
 type ExpenseProps = {
     title: string;
     subtitle: string;
-    amount?: string;
+    amount?: number;
     qnt: number;
 }
 

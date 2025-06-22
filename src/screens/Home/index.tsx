@@ -33,9 +33,10 @@ export function Home() {
         fecthList()
     }, []))
 
-    const handleItemPress = (id: string, title: string) => {
-        navigation.navigate('list', {listId: id, title: title})
-    }
+    // ✅ Soma total dos valores
+    const totalAmount = list.reduce((acc, item) => acc + item.amount, 0)
+
+    const quantity = list.length
 
     return (
         <Container>
@@ -47,8 +48,8 @@ export function Home() {
                 <ExpenseAmount 
                     title='Total de Despesas'
                     subtitle='Quantidade'
-                    amount='165'
-                    qnt={2}
+                    amount={totalAmount}
+                    qnt={quantity}
                 />
             </Content>
 
