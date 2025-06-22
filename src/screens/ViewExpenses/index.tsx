@@ -1,4 +1,4 @@
-import { BtnContainer, Container, Subtitle, Title } from "./styles";
+import { BtnContainer, Container, Content, Subtitle, Title } from "./styles";
 import { Button } from "../../components/Button";
 import { useState } from "react";
 import uuid from 'react-native-uuid';
@@ -10,49 +10,14 @@ import { Alert, Text } from "react-native";
 import NavTitle from "../../components/NavTitle";
 import DefaultLabel from "../../components/DefaultLabel";
 import { TextInput } from "../../components/TextInput";
+import ExpenseAmount from "../../components/ExpenseAmount";
 
 export function ViewExpenses() {
-    const [expense, setExpense] = useState({
-        id: '',
-        title: '',
-        amount: 0,
-        description: '',
-        status: true
-    });
+    const [list, setList] = useState<Expense[]>([]);
 
-    const navigation = useNavigation();
-
-    async function handleCreate() {
-        const newId = uuid.v4() as string;
-
-        const newExpense: Expense = {
-            id: newId,
-            title: expense.title.trim().toUpperCase(),
-            amount: expense.amount,
-            description: expense.description.trim(),
-            status: expense.status
-        };
-
-        try {
-            await listCreat(newExpense);
-            navigation.navigate('home');
-        } catch (error) {
-            if (error instanceof AppError) {
-                Alert.alert('Erro na criação de despesa', error.message);
-            }
-            console.log(error);
-        }
-
-        console.log(expense)
-        // Limpa os campos
-        setExpense({
-            id: '',
-            title: '',
-            amount: 0,
-            description: '',
-            status: true
-        });
-    }
+    // ✅ Soma total dos valores
+    const totalAmount = 1000 //list.reduce((acc, item) => acc + item.amount, 0)
+    const quantity = 10 //list.length
 
     return (
         <Container>
@@ -60,11 +25,14 @@ export function ViewExpenses() {
                 title="Minhas Despesas"
                 isShowGoBackBtn
             />
-
-            <DefaultLabel>
-                <Subtitle>Total gasto</Subtitle>
-                <Text> R$ 1250,00 </Text>
-            </DefaultLabel>
+            <Content>
+                <ExpenseAmount 
+                    title='Total de Despesas'
+                    subtitle='Quantidade'
+                    amount={totalAmount}
+                    qnt={quantity}
+                />
+            </Content>
         </Container>
     );
 }

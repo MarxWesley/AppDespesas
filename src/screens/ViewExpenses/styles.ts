@@ -11,8 +11,8 @@ export const Container = styled(SafeAreaView)`
 
 export const Content = styled.View`
     flex: 1;
-    justify-content: center;
-    align-items: center;
+    justify-content: top;
+    align-items: top;
 
     width: 100%;
     padding: 0 16px 24px;
