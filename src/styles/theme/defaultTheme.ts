@@ -1,6 +1,7 @@
 export default {
     COLORS: {
         WHITE: '#FFFFFF',
+        FUNDO: '#F9FAFB',
         BLACK: '#000000',
         GARY_200: '#F2F2F2',
         GARY_600: '#949494',
@@ -9,7 +10,7 @@ export default {
         DARK_BLUE: '#040C2C',
         LIGHT_BLUE: '#1E61FE',
 
-        RED: '#E25858',
+        RED: '#E7000B',
     },
 
     FONT_FAMILY: {

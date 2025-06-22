@@ -6,6 +6,7 @@ import { useCallback, useState } from 'react';
 import { FlatList } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { listGetAll } from '../../storage/lists/listGetAll';
+import { ListDashes, Plus } from 'phosphor-react-native';
 
 export type ListItem = {
     id: string;
@@ -13,7 +14,7 @@ export type ListItem = {
     createdAt: string;
 }
 
-export function MyList() {
+export function Home() {
     const [list, setList] = useState<ListItem[]>([]);
 
     const navigation = useNavigation()
@@ -38,7 +39,8 @@ export function MyList() {
     return (
         <Container>
             <Header 
-                title='Minhas listas' 
+                title='Despesas pessoais' 
+                subtitle='Gerencie suas despesas de forma simples e organizada'
             />
             <Content>
                 <Title>Listas</Title>
@@ -60,7 +62,16 @@ export function MyList() {
             </Content>
 
              <BtnContainer>
-                    <Button text='Criar lista' onPress={() => navigation.navigate('newList')}/>
+                    <Button 
+                        icon={<Plus color='white' size={20} weight='bold'/>}
+                        text='Inserir despesa' 
+                        onPress={() => navigation.navigate('newList')}
+                    />
+                    <Button 
+                        variant='SECUNDARY'
+                        icon={<ListDashes color='black' size={20} weight='bold'/>}
+                        text='Ver despesas' 
+                    />
             </BtnContainer>
         </Container>
     )

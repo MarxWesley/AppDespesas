@@ -3,19 +3,29 @@ import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native"
 
 export const Container = styled.View`
-    position: relative;
+    background-color: #fff;
+    margin: 16px;
+    padding: 20px;
+    width: 90%;
+    border-radius: 12px;
     align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 135px;
-    padding: 50px;
+    elevation: 3px;
+    shadow-color: #000;
+    shadow-opacity: 0.1px;
+    shadow-radius: 4px;
 `;
 
 export const PageTitle = styled.Text`
-    color: ${(props) => props.theme.COLORS.WHITE};
+    color: ${(props) => props.theme.COLORS.BLACK};
     font-size: ${(props) => props.theme.FONT_SIZE.XL}px;
     font-family: ${(props) => props.theme.FONT_FAMILY.BOLD};
+`;
+
+export const Subtitle = styled.Text`
+    color: ${(props) => props.theme.COLORS.GARY_600};
+    text-align: center;
+    font-size: 14;
+    margin-top: 8;
 `;
 
 export const GoBackBtn = styled(TouchableOpacity)`

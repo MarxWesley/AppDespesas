@@ -4,7 +4,7 @@ import { Button } from "../../components/Button";
 import { TextInput } from "../../components/TextInput";
 import { useState } from "react";
 import uuid from 'react-native-uuid';
-import { ListItem } from "../MyList";
+import { ListItem } from "../Home";
 import { listCreat } from "../../storage/lists/listCreate";
 import { useNavigation } from "@react-navigation/native";
 import { AppError } from "../../util/AppError";
@@ -56,7 +56,10 @@ export function NewList() {
                 />
 
                 <BtnContainer>
-                    <Button text="criar" onPress={() => handleCreateList(textInput)}/>
+                    <Button 
+                        text="Inserir Despesa" 
+                        onPress={() => handleCreateList(textInput)}
+                    />
                 </BtnContainer>
             </Content>
        </Container>

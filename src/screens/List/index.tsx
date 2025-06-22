@@ -103,7 +103,6 @@ export function List() {
 2
                 <Button 
                     text="remover lista" 
-                    variant="DANGER"
                 />
 
             </Content>

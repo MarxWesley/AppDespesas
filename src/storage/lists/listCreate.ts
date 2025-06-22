@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { LIST_COLLECTION } from "../storageConfig";
-import { ListItem } from "../../screens/MyList";
+import { ListItem } from "../../screens/Home";
 import { listGetAll } from "./listGetAll";
 import { AppError } from "../../util/AppError";
 

@@ -1,6 +1,6 @@
 import { CardData, CardIcon, CardTitle, Container } from "./styles";
 import { TouchableOpacityProps } from "react-native";
-import { ListItem } from '../../screens/MyList';
+import { ListItem } from '../../screens/Home';
 
 type ListCardProps = TouchableOpacityProps & {
     listData: ListItem;
