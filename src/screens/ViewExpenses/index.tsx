@@ -1,23 +1,32 @@
 import { BtnContainer, Container, Content, Subtitle, Title } from "./styles";
-import { Button } from "../../components/Button";
-import { useState } from "react";
-import uuid from 'react-native-uuid';
+import { useCallback, useState } from "react";
 import { Expense } from "../Home";
-import { listCreat } from "../../storage/lists/listCreate";
-import { useNavigation } from "@react-navigation/native";
-import { AppError } from "../../util/AppError";
-import { Alert, Text } from "react-native";
 import NavTitle from "../../components/NavTitle";
-import DefaultLabel from "../../components/DefaultLabel";
-import { TextInput } from "../../components/TextInput";
 import ExpenseAmount from "../../components/ExpenseAmount";
+import DefaultLabel from "../../components/DefaultLabel";
+import { FlatList } from "react-native";
+import { listGetAll } from "../../storage/lists/listGetAll";
+import { useFocusEffect } from "@react-navigation/native";
 
 export function ViewExpenses() {
     const [list, setList] = useState<Expense[]>([]);
 
+    async function fecthList() {
+            try {
+                const data = await listGetAll()
+                setList(data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+    useFocusEffect(useCallback( () => {
+        fecthList()
+    }, []))
+
     // ✅ Soma total dos valores
-    const totalAmount = 1000 //list.reduce((acc, item) => acc + item.amount, 0)
-    const quantity = 10 //list.length
+    const totalAmount = list.reduce((acc, item) => acc + item.amount, 0)
+    const quantity = list.length
 
     return (
         <Container>
@@ -25,14 +34,28 @@ export function ViewExpenses() {
                 title="Minhas Despesas"
                 isShowGoBackBtn
             />
-            <Content>
-                <ExpenseAmount 
-                    title='Total de Despesas'
-                    subtitle='Quantidade'
-                    amount={totalAmount}
-                    qnt={quantity}
-                />
-            </Content>
+
+            <ExpenseAmount 
+                title='Total de Despesas'
+                subtitle='Quantidade'
+                amount={totalAmount}
+                qnt={quantity}
+            />
+
+            {list.length > 0 && 
+                (<FlatList
+                    data={list.filter(item => item.status === true)}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item}) => (
+                        <DefaultLabel>
+                            <Title>
+                                {item.title}
+                            </Title>
+                        </DefaultLabel>
+                    )} 
+                />)
+            }
+
         </Container>
     );
 }

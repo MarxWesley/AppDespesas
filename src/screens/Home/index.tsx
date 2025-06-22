@@ -45,14 +45,13 @@ export function Home() {
                 title='Despesas pessoais' 
                 subtitle='Gerencie suas despesas de forma simples e organizada'
             />
-            <Content>
-                <ExpenseAmount 
-                    title='Total de Despesas'
-                    subtitle='Quantidade'
-                    amount={totalAmount}
-                    qnt={quantity}
-                />
-            </Content>
+            
+            <ExpenseAmount 
+                title='Total de Despesas'
+                subtitle='Quantidade'
+                amount={totalAmount}
+                qnt={quantity}
+            />
 
              <BtnContainer>
                     <Button 
