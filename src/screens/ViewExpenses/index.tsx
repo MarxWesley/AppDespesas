@@ -6,7 +6,7 @@ import { Expense } from "../Home";
 import { listCreat } from "../../storage/lists/listCreate";
 import { useNavigation } from "@react-navigation/native";
 import { AppError } from "../../util/AppError";
-import { Alert } from "react-native";
+import { Alert, Text } from "react-native";
 import NavTitle from "../../components/NavTitle";
 import DefaultLabel from "../../components/DefaultLabel";
 import { TextInput } from "../../components/TextInput";
@@ -63,40 +63,7 @@ export function ViewExpenses() {
 
             <DefaultLabel>
                 <Subtitle>Total gasto</Subtitle>
-
-                <TextInput 
-                    placeholder="Tipo da despesa" 
-                    value={expense.title}
-                    onChangeText={(text) =>
-                        setExpense(prev => ({
-                            ...prev,
-                            title: text
-                        }))
-                    }
-                />
-
-                <TextInput 
-                    placeholder="Valor" 
-                    keyboardType="numeric"
-                    value={expense.amount ? expense.amount.toString() : ''}
-                    onChangeText={(text) =>
-                        setExpense(prev => ({
-                            ...prev,
-                            amount: Number(text)
-                        }))
-                    }
-                />
-
-                <TextInput 
-                    placeholder="Descrição (opcional)" 
-                    value={expense.description}
-                    onChangeText={(text) =>
-                        setExpense(prev => ({
-                            ...prev,
-                            description: text
-                        }))
-                    }
-                />
+                <Text> R$ 1250,00 </Text>
             </DefaultLabel>
         </Container>
     );
