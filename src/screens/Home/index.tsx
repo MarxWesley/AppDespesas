@@ -33,11 +33,12 @@ export function Home() {
         fecthList()
     }, []))
 
+
     // ✅ Soma total dos valores
     const totalAmount = list.reduce((acc, item) => acc + item.amount, 0)
 
     const quantity = list.length
-
+    
     return (
         <Container>
             <Header 
@@ -63,6 +64,7 @@ export function Home() {
                         variant='SECUNDARY'
                         icon={<ListDashes color='black' size={20} weight='bold'/>}
                         text='Ver despesas' 
+                        onPress={() => navigation.navigate('viewExpenses')}
                     />
             </BtnContainer>
         </Container>
