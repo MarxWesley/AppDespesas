@@ -2,19 +2,6 @@ import { CaretLeft } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native"
 
-export const Container = styled.View`
-    background-color: #fff;
-    margin: 16px;
-    padding: 20px;
-    width: 90%;
-    border-radius: 12px;
-    align-items: center;
-    elevation: 3px;
-    shadow-color: #000;
-    shadow-opacity: 0.1px;
-    shadow-radius: 4px;
-`;
-
 export const PageTitle = styled.Text`
     color: ${(props) => props.theme.COLORS.BLACK};
     font-size: ${(props) => props.theme.FONT_SIZE.XL}px;
@@ -24,7 +11,7 @@ export const PageTitle = styled.Text`
 export const Subtitle = styled.Text`
     color: ${(props) => props.theme.COLORS.GARY_600};
     text-align: center;
-    font-size: 14;
+    font-size: 14px;
     margin-top: 8;
 `;
 

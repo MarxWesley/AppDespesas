@@ -1,12 +1,11 @@
 import { BtnContainer, Container, Content, Subtitle, Title } from './styles'
-import Header from "../../components/Header";
 import { Button } from '../../components/Button';
-import { ListCard } from '../../components/ListCard';
 import { useCallback, useState } from 'react';
-import { FlatList } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { listGetAll } from '../../storage/lists/listGetAll';
 import { ListDashes, Plus } from 'phosphor-react-native';
+import Header from '../../components/Header';
+import ExpenseAmount from '../../components/ExpenseAmount';
 
 export type ListItem = {
     id: string;
@@ -43,22 +42,12 @@ export function Home() {
                 subtitle='Gerencie suas despesas de forma simples e organizada'
             />
             <Content>
-                <Title>Listas</Title>
-                <Subtitle>Adicione lista de compras</Subtitle>
-
-                { list.length > 0 &&
-                    (<FlatList
-                        data={list}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => (
-                            <ListCard 
-                                listData={item} 
-                                onPress={() => handleItemPress(item.id, item.title)}/>
-                        )}
-                        contentContainerStyle={{gap: 12, paddingBottom: 100}}
-                    />) 
-                } 
-
+                <ExpenseAmount 
+                    title='Total de Despesas'
+                    subtitle='Quantidade'
+                    amount='165'
+                    qnt={2}
+                />
             </Content>
 
              <BtnContainer>

@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import { Container, GoBackBtn, GoBackIcon, PageTitle, Subtitle } from "./styles";
+import { GoBackBtn, GoBackIcon, PageTitle, Subtitle } from "./styles";
+import DefaultLabel from "../DefaultLabel";
 
 type HeaderProps = {
     title: string;
@@ -11,7 +12,7 @@ export default function Header ({title, subtitle, isShowGoBackBtn = false}: Head
     const navigation = useNavigation()
     
     return (
-        <Container>
+        <DefaultLabel>
             {isShowGoBackBtn &&
                 <GoBackBtn onPress={() => navigation.navigate('myList')}>
                     <GoBackIcon />
@@ -19,6 +20,6 @@ export default function Header ({title, subtitle, isShowGoBackBtn = false}: Head
             }
             <PageTitle>{title}</PageTitle>
             <Subtitle>{subtitle}</Subtitle>
-        </Container>
+        </DefaultLabel>
     )
 }
