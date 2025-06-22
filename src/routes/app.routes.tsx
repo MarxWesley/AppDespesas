@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NewList } from "../screens/NewList";
+import { NewExpense } from "../screens/NewExpense";
 import { List } from "../screens/List";
 import { Home } from "../screens/Home";
 
@@ -14,8 +14,8 @@ export function AppRoutes () {
             />
 
             <Screen
-                name="newList"
-                component={NewList}
+                name="newExpense"
+                component={NewExpense}
             />
 
             <Screen

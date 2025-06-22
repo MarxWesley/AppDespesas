@@ -11,9 +11,7 @@ export const Container = styled(SafeAreaView)`
 
 export const Content = styled.View`
     flex: 1;
-
     width: 100%;
-    padding: 0 16px 24px;
 `;
 
 export const Title = styled.Text`
@@ -29,7 +27,6 @@ export const Subtitle = styled.Text`
     font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
     color: ${({theme}) => theme.COLORS.GARY_600};
     font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
-    margin-bottom: 32px;
 `;
 
 export const BtnContainer = styled.View`

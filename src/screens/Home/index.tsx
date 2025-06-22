@@ -7,14 +7,16 @@ import { ListDashes, Plus } from 'phosphor-react-native';
 import Header from '../../components/Header';
 import ExpenseAmount from '../../components/ExpenseAmount';
 
-export type ListItem = {
+export type Expense = {
     id: string;
     title: string;
-    createdAt: string;
+    amount: number;
+    description?: string;
+    status: boolean;
 }
 
 export function Home() {
-    const [list, setList] = useState<ListItem[]>([]);
+    const [list, setList] = useState<Expense[]>([]);
 
     const navigation = useNavigation()
     
@@ -54,7 +56,7 @@ export function Home() {
                     <Button 
                         icon={<Plus color='white' size={20} weight='bold'/>}
                         text='Inserir despesa' 
-                        onPress={() => navigation.navigate('newList')}
+                        onPress={() => navigation.navigate('newExpense')}
                     />
                     <Button 
                         variant='SECUNDARY'

@@ -63,7 +63,6 @@ export function List() {
         <Container>
             <Header 
                 title='Lista' 
-                isShowGoBackBtn
             />
 
             <Content>

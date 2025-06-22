@@ -9,8 +9,9 @@ export const Row = styled.View`
 `;
 
 export const Subtitle = styled.Text`
-  font-size: 14px;
-  color: #1e293b;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #1e293b;
 `;
 
 export const TotalExpense = styled.Text`

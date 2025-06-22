@@ -1,21 +1,23 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { LIST_COLLECTION } from "../storageConfig";
-import { ListItem } from "../../screens/Home";
+import { Expense } from "../../screens/Home";
 import { listGetAll } from "./listGetAll";
 import { AppError } from "../../util/AppError";
 
-export async function listCreat(newList: ListItem) {
+export async function listCreat(newExpense: Expense) {
     try {
-        const storedLists = await listGetAll()
+        const storedExpenses = await listGetAll()
 
-        const isListNameAlreadyUsed = storedLists.map((item: ListItem) => item.title).includes(newList.title)
+        const isExpenseNameAlreadyUsed = storedExpenses.map(
+            (item: Expense) => 
+            item.title).includes(newExpense.title)
 
-        if(isListNameAlreadyUsed) {
-            throw new AppError('Nome de lista duplicado. Não é possível adicionar listas com nomes duplicados')
+        if(isExpenseNameAlreadyUsed) {
+            throw new AppError('Nome de despesa duplicado. Não é possível adicionar despesas com nomes duplicados')
         }
 
-        const newStorage = JSON.stringify([...storedLists, newList])
+        const newStorage = JSON.stringify([...storedExpenses, newExpense])
 
         await AsyncStorage.setItem(LIST_COLLECTION, newStorage)
     } catch(error) {

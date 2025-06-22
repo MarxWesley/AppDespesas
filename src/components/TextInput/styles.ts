@@ -6,7 +6,7 @@ export const InputContainer = styled(TextInput)`
     width: 100%;
 
     border: ${({theme}) => `1px solid ${theme.COLORS.GARY_600}`};
-    color: ${(props) => props.theme.COLORS.WHITE};
+    color: ${(props) => props.theme.COLORS.BLACK};
     font=family: ${(props) => props.theme.FONT_FAMILY.REGULAR};
     font-size: ${(props) => props.theme.FONT_SIZE.MD}px;
 
