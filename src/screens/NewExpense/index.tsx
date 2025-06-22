@@ -1,4 +1,4 @@
-import { BtnContainer, Container, Subtitle, Title } from "./styles";
+import { BtnContainer, Container, Content, Label, Subtitle, Title } from "./styles";
 import { Button } from "../../components/Button";
 import { useState } from "react";
 import uuid from 'react-native-uuid';
@@ -60,13 +60,15 @@ export function NewExpense() {
                 title="Inserir despesa"
                 isShowGoBackBtn
             />
-
             <DefaultLabel>
                 <Title>Nova lista</Title>
                 <Subtitle>Crie sua nova lista para adicionar itens</Subtitle>
 
-                <TextInput 
-                    placeholder="Tipo da despesa" 
+                <Label>
+                    Tipo de despesa
+                </Label>
+                <TextInput
+                    placeholder="Tipo da despesa"
                     value={expense.title}
                     onChangeText={(text) =>
                         setExpense(prev => ({
@@ -76,8 +78,11 @@ export function NewExpense() {
                     }
                 />
 
-                <TextInput 
-                    placeholder="Valor" 
+                <Label>
+                    Valor
+                </Label>
+                <TextInput
+                    placeholder="Valor"
                     keyboardType="numeric"
                     value={expense.amount ? expense.amount.toString() : ''}
                     onChangeText={(text) =>
@@ -88,8 +93,11 @@ export function NewExpense() {
                     }
                 />
 
-                <TextInput 
-                    placeholder="Descrição (opcional)" 
+                <Label>
+                    Descrição (opcional)
+                </Label>
+                <TextInput
+                    placeholder="Descrição (opcional)"
                     value={expense.description}
                     onChangeText={(text) =>
                         setExpense(prev => ({
@@ -98,10 +106,9 @@ export function NewExpense() {
                         }))
                     }
                 />
-
                 <BtnContainer>
-                    <Button 
-                        text="Adicionar despesa" 
+                    <Button
+                        text="Adicionar despesa"
                         onPress={handleCreate}
                     />
                 </BtnContainer>

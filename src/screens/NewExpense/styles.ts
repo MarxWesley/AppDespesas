@@ -9,32 +9,44 @@ export const Container = styled(SafeAreaView)`
     color: ${(props) => props.theme.COLORS.WHITE};
 `;
 
-export const Content = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    padding: 0 16px 24px;
+export const DefaultLabel = styled.View`
+  background-color: #fff;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  elevation: 4; // sombra no Android
+  shadow-color: #000;
+  shadow-offset: 0px 2px;
+  shadow-opacity: 0.1;
+  shadow-radius: 8px;
 `;
 
 export const Title = styled.Text`
-    text-align: center;
-    font-size: ${({theme}) => theme.FONT_SIZE.LG}px;
-    color: ${({theme}) => theme.COLORS.LIGHT_BLUE};
-    font-family: ${({theme}) => theme.FONT_FAMILY.BOLD};
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 4px;
 `;
 
 export const Subtitle = styled.Text`
-    text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 16px;
+`;
 
-    font-size: ${({theme}) => theme.FONT_SIZE.MD}px;
-    color: ${({theme}) => theme.COLORS.GARY_600};
-    font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
-    margin-bottom: 32px;
+export const Label = styled.Text`
+    text-align: start;
+    font-size: 16px;
+    font-weight: 600;
+    color: #212529;
+    margin-top: 12px;
+    margin-bottom: 6px;
 `;
 
 export const BtnContainer = styled.View`
-    width: 100%;
-    margin-top: 30px;
+  margin-top: 24px;
+`;
+
+export const Content = styled.View`
+  flex: 1;
 `;
