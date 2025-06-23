@@ -1,4 +1,4 @@
-import { Amount, BtnContainer, Container, Content, DateText, Delete, IconWrapper, LeftContent, RightContent, Subtitle, Title, TitleLabel } from "./styles";
+import { Amount, Container, Content, DateText, Delete, IconWrapper, LeftContent, RightContent, Subtitle, Title, TitleLabel } from "./styles";
 import { useCallback, useState } from "react";
 import { Expense } from "../Home";
 import NavTitle from "../../components/NavTitle";
@@ -44,7 +44,11 @@ export function ViewExpenses() {
 
             {list.length > 0 && 
                 (<FlatList
-                    contentContainerStyle={{ flexGrow: 1 }}
+                    contentContainerStyle={{
+                        alignItems: 'center',
+                        paddingBottom: 24,
+                        paddingTop: 8
+                    }}
                     style={{ flex: 1, width: '100%' }}
                     data={list.filter(item => item.status === true)}
                     keyExtractor={(item) => item.id}
@@ -73,7 +77,6 @@ export function ViewExpenses() {
                     )} 
                 />)
             }
-
         </Container>
     );
 }
