@@ -6,7 +6,7 @@ import { Expense } from "../Home";
 import { listCreat } from "../../storage/lists/listCreate";
 import { useNavigation } from "@react-navigation/native";
 import { AppError } from "../../util/AppError";
-import { Alert } from "react-native";
+import { Alert, TouchableOpacity } from "react-native";
 import NavTitle from "../../components/NavTitle";
 import DefaultLabel from "../../components/DefaultLabel";
 import { TextInput } from "../../components/TextInput";
@@ -17,20 +17,24 @@ export function NewExpense() {
         title: '',
         amount: 0,
         description: '',
-        status: true
+        status: true,
+        date: ''
     });
 
     const navigation = useNavigation();
 
     async function handleCreate() {
         const newId = uuid.v4() as string;
+        const date = new Date()
+        const formatedDate = date.toLocaleDateString('Br')
 
         const newExpense: Expense = {
             id: newId,
             title: expense.title.trim().toUpperCase(),
             amount: expense.amount,
             description: expense.description.trim(),
-            status: expense.status
+            status: expense.status,
+            date: formatedDate
         };
 
         try {
@@ -50,7 +54,8 @@ export function NewExpense() {
             title: '',
             amount: 0,
             description: '',
-            status: true
+            status: true,
+            date: ''
         });
     }
 
@@ -60,6 +65,7 @@ export function NewExpense() {
                 title="Inserir despesa"
                 isShowGoBackBtn
             />
+            
             <DefaultLabel>
                 <Title>Nova lista</Title>
                 <Subtitle>Crie sua nova lista para adicionar itens</Subtitle>

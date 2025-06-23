@@ -1,8 +1,7 @@
-import { BtnContainer, Container, Content, Subtitle, Title } from "./styles";
+import { Amount, BtnContainer, Container, Content, DateText, Delete, IconWrapper, LeftContent, RightContent, Subtitle, Title, TitleLabel } from "./styles";
 import { useCallback, useState } from "react";
 import { Expense } from "../Home";
 import NavTitle from "../../components/NavTitle";
-import ExpenseAmount from "../../components/ExpenseAmount";
 import DefaultLabel from "../../components/DefaultLabel";
 import { FlatList } from "react-native";
 import { listGetAll } from "../../storage/lists/listGetAll";
@@ -26,7 +25,6 @@ export function ViewExpenses() {
 
     // ✅ Soma total dos valores
     const totalAmount = list.reduce((acc, item) => acc + item.amount, 0)
-    const quantity = list.length
 
     return (
         <Container>
@@ -35,22 +33,42 @@ export function ViewExpenses() {
                 isShowGoBackBtn
             />
 
-            <ExpenseAmount 
-                title='Total de Despesas'
-                subtitle='Quantidade'
-                amount={totalAmount}
-                qnt={quantity}
-            />
+            <DefaultLabel>
+                <Subtitle>
+                    Total gasto
+                </Subtitle>
+                <Title>
+                    R$ {totalAmount}
+                </Title>
+            </DefaultLabel>
 
             {list.length > 0 && 
                 (<FlatList
+                    contentContainerStyle={{ flexGrow: 1 }}
+                    style={{ flex: 1, width: '100%' }}
                     data={list.filter(item => item.status === true)}
                     keyExtractor={(item) => item.id}
                     renderItem={({item}) => (
                         <DefaultLabel>
-                            <Title>
-                                {item.title}
-                            </Title>
+                            <Content>
+                                <LeftContent>
+                                    <TitleLabel>
+                                        {item.title}
+                                    </TitleLabel>
+                                    <DateText>
+                                        {item.date}
+                                    </DateText>
+                                </LeftContent>
+
+                                <RightContent>
+                                    <Amount>
+                                        R$ {item.amount}
+                                    </Amount>
+                                    <IconWrapper>
+                                        <Delete/>
+                                    </IconWrapper>
+                                </RightContent>
+                            </Content>
                         </DefaultLabel>
                     )} 
                 />)

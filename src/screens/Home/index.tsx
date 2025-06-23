@@ -13,6 +13,7 @@ export type Expense = {
     amount: number;
     description?: string;
     status: boolean;
+    date: string;
 }
 
 export function Home() {

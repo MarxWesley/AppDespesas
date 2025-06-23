@@ -1,9 +1,14 @@
 import { CaretLeft } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native"
 
-export const Container = styled.Text`
+export const Container = styled(SafeAreaView)`
+    flex-direction: row;
     position: relative;
+
+    justify-content: center;
+    align-items: center;
 `;
 
 export const Title = styled.Text`
@@ -14,12 +19,7 @@ export const Title = styled.Text`
 
 export const GoBackBtn = styled(TouchableOpacity)`
     position: absolute;
-    top: 8px;
-    left: 20px;
-    padding: 8px;
-
-    justify-content: center;
-    align-items: center;
+    left:-50px;
 `;
 
 export const GoBackIcon = styled(CaretLeft).attrs((props) => ({

@@ -14,7 +14,7 @@ export const DefaultLabel = styled.View`
   margin: 16px;
   padding: 20px;
   border-radius: 16px;
-  elevation: 4; // sombra no Android
+  elevation: 4;
   shadow-color: #000;
   shadow-offset: 0px 2px;
   shadow-opacity: 0.1;
@@ -48,5 +48,5 @@ export const BtnContainer = styled.View`
 `;
 
 export const Content = styled.View`
-  flex: 1;
+  margin-top: 15%;
 `;

@@ -12,7 +12,7 @@ export const Subtitle = styled.Text`
     color: ${(props) => props.theme.COLORS.GARY_600};
     text-align: center;
     font-size: 14px;
-    margin-top: 8;
+    margin-top: 8px;
 `;
 
 export const GoBackBtn = styled(TouchableOpacity)`
