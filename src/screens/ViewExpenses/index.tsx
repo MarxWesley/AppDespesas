@@ -37,7 +37,7 @@ export function ViewExpenses() {
         }
     };
 
-    // ✅ Soma total dos valores
+    // soma total dos valores
     const totalAmount = list.reduce((acc, item) => acc + item.amount, 0)
 
     return (
